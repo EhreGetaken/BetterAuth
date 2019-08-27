@@ -1,0 +1,5 @@
+name: BetterAuth
+version: 1.4
+author: PokeArtZ
+
+main: net.betterauth.BetterAuth
