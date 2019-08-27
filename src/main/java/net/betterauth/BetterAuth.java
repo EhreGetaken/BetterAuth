@@ -59,7 +59,7 @@ public class BetterAuth extends JavaPlugin {
         this.getConfig().options().header("System by PokeArtZ | Copyright (c) 2019 Espen da Silva. All rights reserved!");
         cfg.addDefault("Settings.Prefix", "§6§lBetterAuth §8> ");
         //ADD KICK TIME IN TICKS 4 EACH PLAYER (ASYNC)
-        //cfg.addDefault("Settings.KickTimeInTicks", "1000");
+        cfg.addDefault("Settings.KickTimeInTicks", "1000");
         cfg.addDefault("Settings.UserID", "YOURUSERIDHERE");
         cfg.addDefault("Settings.SaveType", "FILE");
 
