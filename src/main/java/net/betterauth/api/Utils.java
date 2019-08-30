@@ -49,7 +49,7 @@ public class Utils {
         Integer mathResult = numb1 + numb2;
 
         String msg = getConvertedMessage(mathAuthMessage, "%f", String.valueOf(numb1));
-        msg = getConvertedMessage(msg, "%f2", String.valueOf(numb2));
+        msg = getConvertedMessage(msg, "%g", String.valueOf(numb2));
 
         player.sendMessage(PREFIX + msg);
         mathAuth.put(player, mathResult);
