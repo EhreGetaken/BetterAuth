@@ -26,8 +26,10 @@ public class JoinListener implements Listener {
             if (!FileAuth.isUserAuthenticated(player.getUniqueId())) {
                 int randomInt = Utils.getRandomInt(0, 1);
                 if (randomInt == 0) {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendWordAuth(player);
                 } else {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendMathAuth(player);
                 }
             } else {
@@ -44,8 +46,10 @@ public class JoinListener implements Listener {
             if (!SqlAuth.isUserAuthenticated(player.getUniqueId())) {
                 int randomInt = Utils.getRandomInt(0, 1);
                 if (randomInt == 0) {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendWordAuth(player);
                 } else {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendMathAuth(player);
                 }
             } else {
