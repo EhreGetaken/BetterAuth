@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
                     Utils.isPlayerAuth.add(player);
                     Utils.cachedSqlAuth.add(player);
                     Utils.wordAuth.remove(player);
-                    player.sendMessage(Utils.PREFIX + "§7You are §6§lauthenticated§7!");
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.authCompleteMessage));
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 2);
                     Utils.tries.remove(player);
                     Bukkit.getPluginManager().callEvent(new PlayerAuthEvent(player, "MathAuth", String.valueOf(mathResult)));
@@ -41,17 +41,17 @@ public class ChatListener implements Listener {
                 } else {
                     if (!Utils.tries.containsKey(player)) {
                         Utils.tries.put(player, 3);
-                        player.sendMessage(Utils.PREFIX + "§7You have §6§l" + Utils.tries.get(player) + " §7tries left!");
+                        player.sendMessage(Utils.PREFIX + Utils.getConvertedMessage(Utils.trieRemoveMessage, "%t", String.valueOf(Utils.tries.get(player))));
                     } else {
                         int trie = Utils.tries.get(player);
                         trie--;
-                        player.sendMessage(Utils.PREFIX + "§7You have §6§l" + trie + " §7tries left!");
+                        player.sendMessage(Utils.PREFIX + Utils.getConvertedMessage(Utils.trieRemoveMessage, "%t", String.valueOf(trie)));
                         Utils.tries.remove(player);
                         Utils.tries.put(player, trie);
                         if (trie == 0) {
                             Bukkit.getScheduler().scheduleSyncDelayedTask(BetterAuth.getInstance(), () -> {
-                                player.kickPlayer(Utils.PREFIX + "§7You used up your attempts!");
-                            }, 10L);
+                                player.kickPlayer(Utils.PREFIX + Utils.getColoredMessage(Utils.kickMessage));
+                            }, 2L);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class ChatListener implements Listener {
                     Utils.isPlayerAuth.add(player);
                     Utils.cachedSqlAuth.add(player);
                     Utils.wordAuth.remove(player);
-                    player.sendMessage(Utils.PREFIX + "§7You are §6§lauthenticated§7!");
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.authCompleteMessage));
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 2);
                     Utils.tries.remove(player);
                     Bukkit.getPluginManager().callEvent(new PlayerAuthEvent(player, "WordAuth", word));
@@ -75,17 +75,17 @@ public class ChatListener implements Listener {
                 } else {
                     if (!Utils.tries.containsKey(player)) {
                         Utils.tries.put(player, 3);
-                        player.sendMessage(Utils.PREFIX + "§7You have §6§l" + Utils.tries.get(player) + " §7tries left!");
+                        player.sendMessage(Utils.PREFIX + Utils.getConvertedMessage(Utils.trieRemoveMessage, "%t", String.valueOf(Utils.tries.get(player))));
                     } else {
                         int trie = Utils.tries.get(player);
                         trie--;
-                        player.sendMessage(Utils.PREFIX + "§7You have §6§l" + trie + " §7tries left!");
+                        player.sendMessage(Utils.PREFIX + Utils.getConvertedMessage(Utils.trieRemoveMessage, "%t", String.valueOf(trie)));
                         Utils.tries.remove(player);
                         Utils.tries.put(player, trie);
                         if (trie == 0) {
                             Bukkit.getScheduler().scheduleSyncDelayedTask(BetterAuth.getInstance(), () -> {
-                                player.kickPlayer(Utils.PREFIX + "§7You used up your attempts!");
-                            }, 10L);
+                                player.kickPlayer(Utils.PREFIX + Utils.getColoredMessage(Utils.kickMessage));
+                            }, 2L);
                         }
                     }
                 }

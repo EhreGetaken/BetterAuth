@@ -57,11 +57,18 @@ public class BetterAuth extends JavaPlugin {
 
         cfg.options().copyDefaults(true);
         this.getConfig().options().header("System by PokeArtZ | Copyright (c) 2019 Espen da Silva. All rights reserved!");
-        cfg.addDefault("Settings.Prefix", "§6§lBetterAuth §8> ");
+        cfg.addDefault("Settings.Prefix", "&6&lBetterAuth &8> ");
         //ADD KICK TIME IN TICKS 4 EACH PLAYER (ASYNC)
         cfg.addDefault("Settings.KickTimeInTicks", "1000");
         cfg.addDefault("Settings.UserID", "YOURUSERIDHERE");
         cfg.addDefault("Settings.SaveType", "FILE");
+        cfg.addDefault("Messages.NotAuth", "&7Please follow the instructions in the &6&lchat&7!");
+        cfg.addDefault("Messages.WordAuth", "&6Please type in this &6&lword&8: &6&l%w");
+        cfg.addDefault("Messages.MathAuth", "&7What is &6&l%f &8+ &6&l%f2 &7?");
+        cfg.addDefault("Messages.NotAuthJoin", "&7Please follow the &6&linstructions &7in the &6&lchat&7!");
+        cfg.addDefault("Messages.AuthComplete", "&7You are &6&lauthenticated&7!");
+        cfg.addDefault("Messages.TrieRemove", "&7You have &6&l%t &7tires left!");
+        cfg.addDefault("Messages.Kick", "&7You used up your attempts!");
 
         this.saveConfig();
     }

@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Utils {
 
-    public static final String PREFIX = BetterAuth.getInstance().getConfig().getString("Settings.Prefix");
+    public static final String PREFIX = BetterAuth.getInstance().getConfig().getString("Settings.Prefix").replaceAll("&", "§");
 
     public static ArrayList<Player> cachedSqlAuth = new ArrayList<>();
 
@@ -20,13 +20,24 @@ public class Utils {
 
     public static HashMap<Player, Integer> tries = new HashMap<>();
 
+    //Messages
+    public static String notAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.NotAuth");
+    public static String wordAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.WordAuth");
+    public static String mathAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.MathAuth");
+    public static String notAuthJoinMessage = BetterAuth.getInstance().getConfig().getString("Messages.NotAuthJoin");
+    public static String authCompleteMessage = BetterAuth.getInstance().getConfig().getString("Messages.AuthComplete");
+    public static String trieRemoveMessage = BetterAuth.getInstance().getConfig().getString("Messages.TrieRemove");
+    public static String kickMessage = BetterAuth.getInstance().getConfig().getString("Messages.Kick");
+
     public static void sendWordAuth(Player player) {
 
         String alpha = getRandom("string");
         String numb = getRandom("int");
         String word = numb + alpha;
 
-        player.sendMessage(PREFIX + "§7Please type in this §6§lCode§8: §6§l" + word);
+
+
+        player.sendMessage(PREFIX + getConvertedMessage(wordAuthMessage, "%w", word));
         wordAuth.put(player, word);
 
     }
@@ -37,7 +48,10 @@ public class Utils {
         Integer numb2 = getRandomInt(0, 20);
         Integer mathResult = numb1 + numb2;
 
-        player.sendMessage(PREFIX + "§7What is §6§l" + numb1 + " §8+ §6§l" + numb2 + "§7?");
+        String msg = getConvertedMessage(mathAuthMessage, "%f", String.valueOf(numb1));
+        msg = getConvertedMessage(msg, "%f2", String.valueOf(numb2));
+
+        player.sendMessage(PREFIX + msg);
         mathAuth.put(player, mathResult);
 
     }
@@ -66,6 +80,17 @@ public class Utils {
 
         return random.nextInt((upper - lower) + 1) + lower;
 
+    }
+
+    public static String getConvertedMessage(String message, String toReplace, String replaceWith) {
+        message = message.replace(toReplace, replaceWith);
+        message = message.replaceAll("&", "§");
+        return message;
+    }
+
+    public static String getColoredMessage(String message) {
+        message = message.replaceAll("&", "§");
+        return message;
     }
 
 }
