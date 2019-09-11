@@ -1,6 +1,7 @@
 package net.betterauth;
 
 import net.betterauth.api.FileAuth;
+import net.betterauth.api.Metrics;
 import net.betterauth.listener.ChatListener;
 import net.betterauth.listener.JoinListener;
 import net.betterauth.listener.MoveListener;
@@ -24,6 +25,7 @@ public class BetterAuth extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        Metrics metrics = new Metrics(this);
         System.out.println("[BetterAuth] Registering config...");
         registerConfig();
 
