@@ -19,7 +19,7 @@ public class SlotAuthListener implements Listener {
         Player player = event.getPlayer();
 
         if (Utils.slotAuth.containsKey(player)) {
-            int slot = event.getNewSlot();
+            int slot = event.getPreviousSlot();
             int hasToMove = Utils.slotAuth.get(player);
             if (slot == hasToMove) {
                 Utils.mathAuth.remove(player);
