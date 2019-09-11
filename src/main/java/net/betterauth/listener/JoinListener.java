@@ -24,13 +24,16 @@ public class JoinListener implements Listener {
 
         if (BetterAuth.getInstance().getConfig().getString("Settings.SaveType").equalsIgnoreCase("FILE")) {
             if (!FileAuth.isUserAuthenticated(player.getUniqueId())) {
-                int randomInt = Utils.getRandomInt(0, 1);
+                int randomInt = Utils.getRandomInt(0, 2);
                 if (randomInt == 0) {
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendWordAuth(player);
-                } else {
+                } else if (randomInt == 1) {
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendMathAuth(player);
+                } else {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
+                    Utils.sendSlotAuth(player);
                 }
             } else {
                 if (!Utils.isPlayerAuth.contains(player)) {
@@ -44,13 +47,16 @@ public class JoinListener implements Listener {
             }
 
             if (!SqlAuth.isUserAuthenticated(player.getUniqueId())) {
-                int randomInt = Utils.getRandomInt(0, 1);
+                int randomInt = Utils.getRandomInt(0, 2);
                 if (randomInt == 0) {
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendWordAuth(player);
-                } else {
+                } else if (randomInt == 1) {
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
                     Utils.sendMathAuth(player);
+                } else {
+                    player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.notAuthJoinMessage));
+                    Utils.sendSlotAuth(player);
                 }
             } else {
                 if (!Utils.cachedSqlAuth.contains(player)) {

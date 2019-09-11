@@ -29,6 +29,7 @@ public class ChatListener implements Listener {
                     Utils.isPlayerAuth.add(player);
                     Utils.cachedSqlAuth.add(player);
                     Utils.wordAuth.remove(player);
+                    Utils.slotAuth.remove(player);
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.authCompleteMessage));
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 2);
                     Utils.tries.remove(player);
@@ -63,6 +64,7 @@ public class ChatListener implements Listener {
                     Utils.isPlayerAuth.add(player);
                     Utils.cachedSqlAuth.add(player);
                     Utils.wordAuth.remove(player);
+                    Utils.slotAuth.remove(player);
                     player.sendMessage(Utils.PREFIX + Utils.getColoredMessage(Utils.authCompleteMessage));
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 2);
                     Utils.tries.remove(player);

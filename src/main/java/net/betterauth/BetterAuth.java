@@ -65,6 +65,7 @@ public class BetterAuth extends JavaPlugin {
         cfg.addDefault("Messages.NotAuth", "&7Please follow the instructions in the &6&lchat&7!");
         cfg.addDefault("Messages.WordAuth", "&6Please type in this &6&lword&8: &6&l%w");
         cfg.addDefault("Messages.MathAuth", "&7What is &6&l%f &8+ &6&l%g &7?");
+        cfg.addDefault("Messages.SlotAuth", "&7Move to the &6&l%s &7slot in your inventory!");
         cfg.addDefault("Messages.NotAuthJoin", "&7Please follow the &6&linstructions &7in the &6&lchat&7!");
         cfg.addDefault("Messages.AuthComplete", "&7You are &6&lauthenticated&7!");
         cfg.addDefault("Messages.TrieRemove", "&7You have &6&l%t &7tires left!");

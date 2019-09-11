@@ -15,6 +15,7 @@ public class Utils {
 
     public static HashMap<Player, String> wordAuth = new HashMap<>();
     public static HashMap<Player, Integer> mathAuth = new HashMap<>();
+    public static HashMap<Player, Integer> slotAuth = new HashMap<>();
 
     public static ArrayList<Player> isPlayerAuth = new ArrayList<>();
 
@@ -24,6 +25,7 @@ public class Utils {
     public static String notAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.NotAuth");
     public static String wordAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.WordAuth");
     public static String mathAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.MathAuth");
+    public static String slotAuthMessage = BetterAuth.getInstance().getConfig().getString("Messages.SlotAuth");
     public static String notAuthJoinMessage = BetterAuth.getInstance().getConfig().getString("Messages.NotAuthJoin");
     public static String authCompleteMessage = BetterAuth.getInstance().getConfig().getString("Messages.AuthComplete");
     public static String trieRemoveMessage = BetterAuth.getInstance().getConfig().getString("Messages.TrieRemove");
@@ -53,6 +55,15 @@ public class Utils {
 
         player.sendMessage(PREFIX + msg);
         mathAuth.put(player, mathResult);
+
+    }
+
+    public static void sendSlotAuth(Player player) {
+        Integer numb = getRandomInt(1, 9);
+
+        String msg = getConvertedMessage(slotAuthMessage, "%s", String.valueOf(numb));
+        player.sendMessage(PREFIX + msg);
+        slotAuth.put(player, numb);
 
     }
 
