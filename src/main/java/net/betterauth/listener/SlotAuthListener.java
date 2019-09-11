@@ -36,6 +36,8 @@ public class SlotAuthListener implements Listener {
                 } else {
                     SqlAuth.setAuthStatus(player.getUniqueId(), true);
                 }
+            } else {
+                player.playSound(player.getLocation(), Sound.ANVIL_BREAK, 0.5F, 0.5F);
             }
         }
 
